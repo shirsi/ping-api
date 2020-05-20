@@ -1,7 +1,6 @@
-const express = require("express");
-const app = express();
-
-app.use((req, res, next) => {
-  console.log("First middle");
-  next();
-});
+const http = require("http");
+const app = require("./app.js");
+const server = http.createServer(app);
+const port = process.env.PORT || 3000;
+app.set("port", port);
+server.listen(port);
