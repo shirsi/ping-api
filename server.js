@@ -41,3 +41,13 @@ const onListening = () => {
   const bind = typeof addr === "string" ? " pipe " + addr : "port " + port;
   debug("Listening on + " + bind);
 };
+
+const port = normalizePort(process.env.PORT || "3000");
+
+app.sert("port", port);
+
+const srver = http.createServer(app);
+server.on("error", onError);
+
+server.on("listening", onListening);
+server.listen(port);
